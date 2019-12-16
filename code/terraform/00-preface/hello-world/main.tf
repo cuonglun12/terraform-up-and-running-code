@@ -14,5 +14,8 @@ resource "aws_instance" "example" {
   instance_type = "t2.micro"
   vpc_security_group_ids=["sg-05bf1455a217a53ab"]
   subnet_id="subnet-09981c4e74eb3a574"
+  tags={
+    Name = "terra example"
+  }
 }
 

@@ -13,7 +13,7 @@ resource "aws_instance" "example" {
   instance_type     = "t2.micro"
   availability_zone = "ap-southeast-1a"
   ami               = "ami-07539a31f72d244e7"
-  vpc_security_group_ids = [aws_security_group_instance_id]
+  vpc_security_group_ids = [aws_security_group.instance.id]
   subnet_id="subnet-09981c4e74eb3a574"
   user_data = <<-EOF
               #!/bin/bash
@@ -26,6 +26,7 @@ resource "aws_instance" "example" {
 
 resource "aws_security_group" "instance" {
   name = "terraform-example-"
+  vpc_id      = "${aws_vpc.main.id}"
   ingress{
     from_port = 8080
     to_port = 8080
@@ -34,8 +35,6 @@ resource "aws_security_group" "instance" {
   }
 }
 
-output "aws_security_group_instance_id" {
-  value = aws_security_group.instance.id
-}
+
 
 

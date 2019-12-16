@@ -3,7 +3,7 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
+  region = "ap-southeast-1"
 
   # Allow any 2.x version of the AWS provider
   version = "~> 2.0"

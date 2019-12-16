@@ -9,7 +9,7 @@ provider "aws" {
   version = "~> 2.0"
 }
 
-resource "aws_instance" "app" {
+resource "aws_instance" "example" {
   instance_type     = "t2.micro"
   availability_zone = "ap-southeast-1a"
   ami               = "ami-07539a31f72d244e7"

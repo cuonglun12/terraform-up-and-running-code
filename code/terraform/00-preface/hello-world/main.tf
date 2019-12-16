@@ -10,7 +10,9 @@ provider "aws" {
 }
 
 resource "aws_instance" "example" {
-  ami           = "ami-0c55b159cbfafe1f0"
+  ami           = "ami-07539a31f72d244e7"
   instance_type = "t2.micro"
+  vpc_security_group_ids=["sg-05bf1455a217a53ab"]
+  subnet_id="subnet-09981c4e74eb3a574"
 }
 

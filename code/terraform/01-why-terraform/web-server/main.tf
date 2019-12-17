@@ -35,19 +35,3 @@ resource "aws_security_group" "instance" {
   }
 }
 
-variable "server_port" {
-  description= "The port the server will use for HTTP request"
-  type = number
-  default = 8080
-}
-
-output "private_ip" {
-  value = aws_instance.example.private_ip
-  description = "The private IP address of the web server"
-}
-
-
-
-
-
-

@@ -28,12 +28,25 @@ resource "aws_security_group" "instance" {
   name = "terraform-example-"
   vpc_id="vpc-084640cab619447f7"  
   ingress{
-    from_port = 8080
-    to_port = 8080
+    from_port = var.server_port
+    to_port = var.server_port
     protocol = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 }
+
+variable "server_port" {
+  description= "The port the server will use for HTTP request"
+  type = number
+  default = 8080
+}
+
+output "private_ip" {
+  value = aws_instance.example.private_ip
+  description = "The private IP address of the web server"
+}
+
+
 
 
 
